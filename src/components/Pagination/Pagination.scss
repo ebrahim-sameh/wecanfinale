@@ -1,0 +1,90 @@
+@import '../../styles/variables.scss';
+
+.main__pagination {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 6px;
+    margin-top: 10px;
+    transition: $transition;
+    height: 24px;
+    overflow: hidden;
+    button {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $color__semi__gold;
+      font-size: 30px;
+      border-radius: 50%;
+    }
+    &.show {
+      animation: shown .3s ease-in-out forwards;
+      height: 120px;
+    }
+    li {
+      a {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background-color: $color__semi__gold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        // opacity: 0;
+        // height: 0;
+        transition: $transition;
+        white-space: pre;
+        font-size: 12px;
+        font-weight: $ft__w__m;
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          border: 10px solid transparent;
+          border-left-color: $color__semi__gold;
+          left: -13px;
+          transform: translateY(-50%);
+          opacity: 0;
+          transition: $transition;
+        }
+        .p_tooltip {
+          position: absolute;
+          top: 50%;
+          left: -12px;
+          transform: translate(-100%, -50%);
+          padding: 4px;
+          background-color: $color__semi__gold;
+          min-width: 80px;
+          text-align: center;
+          border-radius: 4px;
+          opacity: 0;
+          transition: $transition;
+        }
+        &:hover {
+          .p_tooltip,
+          &::after {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes shown {
+  to {
+    overflow: hidden;
+    overflow: visible;
+  }
+}

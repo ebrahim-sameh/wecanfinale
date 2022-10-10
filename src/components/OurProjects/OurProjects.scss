@@ -1,0 +1,64 @@
+@import '../../styles/variables.scss';
+
+.our__projects__section {
+  margin: $section__margin 0;
+  .projects__container {
+    .project__container {
+      height: 600px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        opacity: .4;
+        transition: $transition;
+      }
+      button {
+        // position: absolute;
+        // top: 50%;
+        // left: 50%;
+        // transform: translate(-50%, -50%);
+        background-color: $color__gold;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: $ft__24;
+        opacity: 0;
+        transform: scale(0);
+        transition: $transition;
+      }
+      &:hover {
+        &::after {
+          opacity: 0;
+        }
+        button {
+          opacity: 1;
+          transform: scale(1);
+          transition: $transition;
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}

@@ -1,0 +1,156 @@
+@import '../../styles/variables.scss';
+
+.hero__section {
+  height: calc(100vh - 80px);
+  position: relative;
+  overflow: hidden;
+  .bgk__imgae {
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://media.istockphoto.com/photos/modern-living-room-interior-3d-render-picture-id1293762741?b=1&k=20&m=1293762741&s=170667a&w=0&h=2RI8SmBN4MrEZuTvdwRzaeB887x-dukFcQBpyQ-qwS4=');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: $transition;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      opacity: .6;
+      // backdrop-filter: blur(10px);
+    }
+  }
+  .hero__content {
+    height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    .hero__text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      .hero__title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        line-height: 52px;
+        font-weight: $ft__w__m;
+        span {
+          &:first-of-type {
+            font-family: myFirstFont;
+            font-size: $ft__90;
+            // font-weight: $ft__w__b;
+          }
+          &:last-of-type {
+            font-family: myFirstFont1;
+            letter-spacing: -.03em;
+            font-weight: $ft__w__b;
+            color: $color__gold;
+            font-size: $ft__38;
+          }
+        }
+      }
+      p {
+        font-size: $ft__20;
+        font-weight: $ft__w__m;
+        color: $color__gray;
+        color: #c5c5c5;
+        line-height: 28px;
+        width: 570px;
+        max-width: 100%;
+        margin-top: 40px;
+      }
+      .hero__links {
+        width: 100%;
+        margin-top: 40px;
+        row-gap: 30px;
+        ul {
+          column-gap: 14px;
+          flex: 1;
+          li {
+            a {
+              font-size: $ft__28;
+              transition: $transition;
+              display: block;
+              position: relative;
+              &:hover {
+                color: $color__gold;
+                transform: scale(1.1);
+              }
+            }
+          }
+        }
+        .main__button {
+          backdrop-filter: blur(10px);
+          border-width: 2px;
+        }
+      }
+    }
+    .hero__rigth {
+      flex: 1;
+      height: calc(100vh - 80px);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding-bottom: 47px;
+      width: 50%;
+    }
+  }
+}
+@media(max-width: 991px) {
+  .hero__section {
+    .hero__content {
+      .hero__rigth {
+        position: absolute;
+        width: 100%;
+     }
+    }
+  }
+}
+@media(max-width: 575px) {
+  .hero__section {
+    height: auto;
+    padding: 60px 0 40px;
+    .hero__content {
+      height: auto;
+      flex-direction: column;
+      .hero__text {
+        .hero__title {
+          span {
+            &:first-of-type {
+              font-size: 60px;
+            }
+            &:last-of-type {
+              font-size: 28px;
+              line-height: 32px;
+            }
+          }
+        }   
+        p {
+          width: auto;
+          font-size: 18px;
+          margin-top: 12px;
+        }
+        .hero__links {
+          margin-top: 12px;
+        }
+      }
+      .hero__rigth {
+        margin-top: 100px;
+        height: auto;
+        position: relative;
+        padding-bottom: 0;
+      }
+    }
+  }
+}
